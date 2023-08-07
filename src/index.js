@@ -1,3 +1,6 @@
+var newVar = "00101010100000000010001011101000101110100000111111**********00001011110000111111000010111000101110100000111010"
+
+
 const MORSE_TABLE = {
     '.-':     'a',
     '-...':   'b',
@@ -38,9 +41,21 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
+   let newStr = expr.split("**********");
+   let letterStr = newStr.map((splitedLetter) => {
+ 
+    let letter = splitedLetter.match(/.{0,10}/g);
+
+    letter.pop();
+    
+    return letter;
+   }
+    );
+//    for(let i = 0; i < newStr.length; i++) {
+//     returnStr.push(MORSE_TABLE.map())
+//    }
+
+   return letterStr;
 }
 
-module.exports = {
-    decode
-}
+console.log(decode(newVar));
